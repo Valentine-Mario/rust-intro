@@ -1,13 +1,13 @@
 #[path = "./app/using_vec.rs"]
 pub mod app;
 pub use self::app::vector_eg;
-#[path="./app/another_fun.rs"]
+#[path = "./app/another_fun.rs"]
 pub mod app2;
 pub use self::app2::delit_mod;
 use std::collections::HashMap;
 
 fn main() {
-    let vec1= vector_eg::vec_fun(20);
+    let vec1 = vector_eg::vec_fun(20);
     println!("{:?}", vec1);
     delit_mod::delit("some name");
     let mut v = vec![1, 2, 3];
@@ -16,9 +16,9 @@ fn main() {
     println!("The first element is: {}", first);
 
     for i in &mut v {
-        *i+=10; //derefrence value before using them
+        *i += 10; //derefrence value before using them
     }
-    let sec:&i32= &v[1];
+    let sec: &i32 = &v[1];
     println!("the second element is {}", sec);
 
     match v.get(100) {
@@ -26,25 +26,25 @@ fn main() {
         None => println!("no 100th element there are only {} in this vector", v.len()),
     }
     println!("{:?}", v);
-    let enum_val:Vec<vector_eg::spredsheet::SpreadsheetCell>=vector_eg::enum_vec(23, String::from("hello"), 30.6);
-    match enum_val[0]{
-       vector_eg::spredsheet::SpreadsheetCell::Int(value)=>println!("{}", value),
-        _=>println!("stuff")
+    let enum_val: Vec<vector_eg::spredsheet::SpreadsheetCell> =
+        vector_eg::enum_vec(23, String::from("hello"), 30.6);
+    match enum_val[0] {
+        vector_eg::spredsheet::SpreadsheetCell::Int(value) => println!("{}", value),
+        _ => println!("stuff"),
     }
     for i in "hello".chars() {
         println!("{}", i);
     }
-    for i in "hello".bytes(){
+    for i in "hello".bytes() {
         println!("{}", i);
     }
-
 
     let mut scores = HashMap::new();
 
     scores.insert(String::from("Blue"), 10.0);
     scores.insert(String::from("Yellow"), 50.0);
     println!("{:?}", scores);
-    let teams  = vec![String::from("Blue"), String::from("Yellow")];
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
     let initial_scores = vec![10, 50];
 
     let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
@@ -54,7 +54,7 @@ fn main() {
     for (key, value) in &scores {
         println!("{}: {}", key, value);
     }
-    
+
     let mut scores = HashMap::new();
     scores.insert(String::from("Blue"), 10);
 
