@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/lesson8/target/debug/common-f5190ae7db7d107b: /home/dead/Documents/rust/lesson_practice/lesson8/src/main.rs /home/dead/Documents/rust/lesson_practice/lesson8/tests/common.rs

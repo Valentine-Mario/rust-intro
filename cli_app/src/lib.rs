@@ -1,0 +1,100 @@
+
+pub mod arg_config{
+    use std::env;
+    pub struct Config {
+        pub query: String,
+        pub filename: String,
+        pub case_sensitive:bool,
+    }
+     impl Config{
+         pub fn new(args:&Vec<String>)->Result<Config, &'static str>{
+            if args.len()<3 {
+                return Err("at least 2 arguments are expected");
+            }
+            let query = args[1].clone(); //query you wish to search
+            let filename = args[2].clone(); //filename
+            let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+            Ok(Config { query, filename, case_sensitive })
+        }
+    }
+}
+
+pub mod run{
+    use super::arg_config;
+    use std::fs;
+    use std::error::Error;
+
+    //func to read file from arg and check agaist query
+    pub fn read_file(configuration:&arg_config::Config)->Result<(), Box<dyn Error>>{
+        let content = fs::read_to_string(&configuration.filename)?;
+        let results = if configuration.case_sensitive {
+            search(&configuration.query, &content)
+        } else {
+            search_case_insensitive(&configuration.query, &content)
+        };
+    
+        for line in results {
+            println!("{}", line);
+        }
+    
+        Ok(())
+    }
+
+    //func to search query in content
+    pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+        let mut value=Vec::new();
+       for line in contents.lines() {
+            if line.contains(query) {
+                value.push(line);
+            }
+       }
+       value
+    }
+
+    pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+        let query = query.to_lowercase();
+        let mut results = Vec::new();
+    
+        for line in contents.lines() {
+            if line.to_lowercase().contains(&query) {
+                results.push(line);
+            }
+        }
+    
+        results
+    }
+}
+
+#[cfg(test)]
+mod tests{
+    use super::*;
+
+    #[test]
+    fn case_sensitive() {
+        let query = "duct";
+        let contents = "\
+Rust:
+safe, fast, productive.
+Pick three.
+Duct tape.";
+
+        assert_eq!(
+            vec!["safe, fast, productive."],
+            run::search(query, contents)
+        );
+    }
+    #[test]
+    fn case_insensitive() {
+        let query = "rUsT";
+        let contents = "\
+Rust:
+safe, fast, productive.
+Pick three.
+Trust me.";
+
+        assert_eq!(
+            vec!["Rust:", "Trust me."],
+            run::search_case_insensitive(query, contents)
+        );
+    }
+}

@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/cli_app/target/debug/cli_app-d058d4869739fb90: /home/dead/Documents/rust/lesson_practice/cli_app/src/lib.rs /home/dead/Documents/rust/lesson_practice/cli_app/src/main.rs

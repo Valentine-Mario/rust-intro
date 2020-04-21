@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/lesson8/target/debug/test1-b7b2e94bf258148f: /home/dead/Documents/rust/lesson_practice/lesson8/src/main.rs /home/dead/Documents/rust/lesson_practice/lesson8/src/run_test.rs /home/dead/Documents/rust/lesson_practice/lesson8/tests/common.rs /home/dead/Documents/rust/lesson_practice/lesson8/tests/test1.rs
