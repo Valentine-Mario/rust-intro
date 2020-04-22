@@ -6,8 +6,9 @@ pub use crate::lib::run;
 
 fn main() {
     //take a collection of argumants and read them
-    let args: Vec<String> = env::args().collect();
-    let config_value =  arg_config::Config::new(&args).unwrap_or_else(|err| {
+    // let args: Vec<String> = env::args().collect();
+    //the env::args() return an iterator
+    let config_value =  arg_config::Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
