@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/cargo_workspace/target/debug/adder: /home/dead/Documents/rust/lesson_practice/cargo_workspace/add-one/src/lib.rs /home/dead/Documents/rust/lesson_practice/cargo_workspace/add-two/src/lib.rs /home/dead/Documents/rust/lesson_practice/cargo_workspace/adder/src/main.rs

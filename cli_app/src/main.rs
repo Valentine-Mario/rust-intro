@@ -15,6 +15,6 @@ fn main() {
     if let Err(e) = run::read_file(&config_value){
         eprintln!("Application error: {}", e);
         process::exit(1);
-    }
+    };
 }
 
