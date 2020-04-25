@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/smart_pointers/target/debug/smart_pointers: /home/dead/Documents/rust/lesson_practice/smart_pointers/src/lib.rs /home/dead/Documents/rust/lesson_practice/smart_pointers/src/main.rs
