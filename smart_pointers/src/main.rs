@@ -49,7 +49,6 @@ struct Node {
 }
 
 fn main() {
-
     let leaf = Rc::new(Node {
         value: 3,
         parent: RefCell::new(Weak::new()),
