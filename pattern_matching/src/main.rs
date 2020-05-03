@@ -6,13 +6,13 @@ enum Message {
 }
 
 struct Point {
-    x:i32,
-    y:i32   
+    x: i32,
+    y: i32,
 }
 
 fn main() {
     let age: Result<u8, _> = "34".parse();
-    if let Ok(age)=age{
+    if let Ok(age) = age {
         println!("{}", age);
     }
 
@@ -25,7 +25,7 @@ fn main() {
     while let Some(top) = stack.pop() {
         println!("{}", top);
     }
-    let a ={23+90};
+    let a = { 23 + 90 };
     println!("{}", a);
 
     let x = Some(5);
@@ -57,20 +57,14 @@ fn main() {
     let msg = Message::ChangeColor(0, 160, 255);
 
     match msg {
-        Message::Quit => {
-            println!("The Quit variant has no data to destructure.")
-        }
+        Message::Quit => println!("The Quit variant has no data to destructure."),
         Message::Move { x, y } => {
-            println!(
-                "Move in the x direction {} and in the y direction {}",
-                x, y
-            );
+            println!("Move in the x direction {} and in the y direction {}", x, y);
         }
         Message::Write(text) => println!("Text message: {}", text),
-        Message::ChangeColor(r, g, b) => println!(
-            "Change the color to red {}, green {}, and blue {}",
-            r, g, b
-        ),
+        Message::ChangeColor(r, g, b) => {
+            println!("Change the color to red {}, green {}, and blue {}", r, g, b)
+        }
     }
 
     let numbers = (2, 4, 8, 16, 32);
@@ -100,9 +94,7 @@ fn main() {
         Message2::Hello {
             id: id_variable @ 3..=7,
         } => println!("Found an id in range: {}", id_variable),
-        Message2::Hello { id: 10..=12 } => {
-            println!("Found an id in another range")
-        }
+        Message2::Hello { id: 10..=12 } => println!("Found an id in another range"),
         Message2::Hello { id } => println!("Found some other id: {}", id),
     }
 
