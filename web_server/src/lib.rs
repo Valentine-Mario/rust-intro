@@ -85,6 +85,7 @@ impl ThreadPool {
     }
 }
 
+//run when going out of scope
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         println!("Sending terminate message to all workers.");
