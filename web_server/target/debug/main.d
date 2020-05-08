@@ -1,0 +1,1 @@
+/home/dead/Documents/rust/lesson_practice/web_server/target/debug/main: /home/dead/Documents/rust/lesson_practice/web_server/src/bin/main.rs /home/dead/Documents/rust/lesson_practice/web_server/src/lib.rs
